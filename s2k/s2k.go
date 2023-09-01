@@ -19,6 +19,7 @@ import (
 	"strconv"
 
 	"github.com/jinwong001/openpgp/errors"
+	"github.com/jinwong001/openpgp/internal/algorithm"
 )
 
 // Config collects configuration parameters for s2k key-stretching
@@ -171,10 +172,10 @@ func Parse(r io.Reader) (f func(out, in []byte), err error) {
 	if !ok {
 		return nil, errors.UnsupportedError("hash for S2K function: " + strconv.Itoa(int(buf[1])))
 	}
-	if !hash.Available() {
+	h, err := algorithm.HashNew(hash)
+	if err != nil {
 		return nil, errors.UnsupportedError("hash not available: " + strconv.Itoa(int(hash)))
 	}
-	h := hash.New()
 
 	switch buf[0] {
 	case 0:
@@ -229,51 +230,19 @@ func Serialize(w io.Writer, key []byte, rand io.Reader, passphrase []byte, c *Co
 	return nil
 }
 
-// hashToHashIdMapping contains pairs relating OpenPGP's hash identifier with
-// Go's crypto.Hash type. See RFC 4880, section 9.4.
-var hashToHashIdMapping = []struct {
-	id   byte
-	hash crypto.Hash
-	name string
-}{
-	{1, crypto.MD5, "MD5"},
-	{2, crypto.SHA1, "SHA1"},
-	{3, crypto.RIPEMD160, "RIPEMD160"},
-	{8, crypto.SHA256, "SHA256"},
-	{9, crypto.SHA384, "SHA384"},
-	{10, crypto.SHA512, "SHA512"},
-	{11, crypto.SHA224, "SHA224"},
-}
-
 // HashIdToHash returns a crypto.Hash which corresponds to the given OpenPGP
 // hash id.
 func HashIdToHash(id byte) (h crypto.Hash, ok bool) {
-	for _, m := range hashToHashIdMapping {
-		if m.id == id {
-			return m.hash, true
-		}
-	}
-	return 0, false
+	return algorithm.HashIdToHash(id)
 }
 
 // HashIdToString returns the name of the hash function corresponding to the
 // given OpenPGP hash id.
 func HashIdToString(id byte) (name string, ok bool) {
-	for _, m := range hashToHashIdMapping {
-		if m.id == id {
-			return m.name, true
-		}
-	}
-
-	return "", false
+	return algorithm.HashIdToString(id)
 }
 
 // HashToHashId returns an OpenPGP hash id which corresponds the given Hash.
 func HashToHashId(h crypto.Hash) (id byte, ok bool) {
-	for _, m := range hashToHashIdMapping {
-		if m.hash == h {
-			return m.id, true
-		}
-	}
-	return 0, false
+	return algorithm.HashToHashId(h)
 }

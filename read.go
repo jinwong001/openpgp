@@ -20,6 +20,7 @@ import (
 
 	"github.com/jinwong001/openpgp/armor"
 	"github.com/jinwong001/openpgp/errors"
+	"github.com/jinwong001/openpgp/internal/algorithm"
 	"github.com/jinwong001/openpgp/packet"
 )
 
@@ -288,10 +289,10 @@ FindLiteralData:
 // returns two hashes. The second should be used to hash the message itself and
 // performs any needed preprocessing.
 func hashForSignature(hashId crypto.Hash, sigType packet.SignatureType) (hash.Hash, hash.Hash, error) {
-	if !hashId.Available() {
+	h, err := algorithm.HashNew(hashId)
+	if err != nil {
 		return nil, nil, errors.UnsupportedError("hash not available: " + strconv.Itoa(int(hashId)))
 	}
-	h := hashId.New()
 
 	switch sigType {
 	case packet.SigTypeBinary:
