@@ -12,8 +12,8 @@ import (
 	"math/big"
 	"strconv"
 
-	"github.com/CardInfoLink/openpgp/elgamal"
-	"github.com/CardInfoLink/openpgp/errors"
+	"github.com/jinwong001/openpgp/elgamal"
+	"github.com/jinwong001/openpgp/errors"
 )
 
 const encryptedKeyVersion = 3

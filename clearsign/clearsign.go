@@ -13,7 +13,7 @@
 // for their specific task. If you are required to interoperate with OpenPGP
 // systems and need a maintained package, consider a community fork.
 // See https://golang.org/issue/44226.
-package clearsign // import "github.com/CardInfoLink/openpgp/clearsign"
+package clearsign // import "github.com/jinwong001/openpgp/clearsign"
 
 import (
 	"bufio"
@@ -26,9 +26,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/CardInfoLink/openpgp/armor"
-	"github.com/CardInfoLink/openpgp/errors"
-	"github.com/CardInfoLink/openpgp/packet"
+	"github.com/jinwong001/openpgp/armor"
+	"github.com/jinwong001/openpgp/errors"
+	"github.com/jinwong001/openpgp/packet"
 )
 
 // A Block represents a clearsigned message. A signature on a Block can

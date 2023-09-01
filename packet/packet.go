@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"math/bits"
 
-	"github.com/CardInfoLink/openpgp/errors"
+	"github.com/jinwong001/openpgp/errors"
 	"golang.org/x/crypto/cast5"
 )
 

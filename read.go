@@ -18,9 +18,9 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/CardInfoLink/openpgp/armor"
-	"github.com/CardInfoLink/openpgp/errors"
-	"github.com/CardInfoLink/openpgp/packet"
+	"github.com/jinwong001/openpgp/armor"
+	"github.com/jinwong001/openpgp/errors"
+	"github.com/jinwong001/openpgp/packet"
 )
 
 // SignatureType is the armor type for a PGP signature.

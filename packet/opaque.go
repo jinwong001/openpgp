@@ -8,7 +8,7 @@ import (
 	"bytes"
 	"io"
 
-	"github.com/CardInfoLink/openpgp/errors"
+	"github.com/jinwong001/openpgp/errors"
 )
 
 // OpaquePacket represents an OpenPGP packet as raw, unparsed data. This is

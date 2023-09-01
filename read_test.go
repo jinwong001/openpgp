@@ -12,8 +12,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/CardInfoLink/openpgp/armor"
-	"github.com/CardInfoLink/openpgp/errors"
+	"github.com/jinwong001/openpgp/armor"
+	"github.com/jinwong001/openpgp/errors"
 )
 
 func readerFromHex(s string) io.Reader {

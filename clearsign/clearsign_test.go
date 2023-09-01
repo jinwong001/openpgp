@@ -10,8 +10,8 @@ import (
 	"io"
 	"testing"
 
-	"github.com/CardInfoLink/openpgp"
-	"github.com/CardInfoLink/openpgp/packet"
+	"github.com/jinwong001/openpgp"
+	"github.com/jinwong001/openpgp/packet"
 )
 
 func testParse(t *testing.T, input []byte, expected, expectedPlaintext string) {

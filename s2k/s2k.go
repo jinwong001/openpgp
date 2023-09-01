@@ -18,7 +18,7 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/CardInfoLink/openpgp/errors"
+	"github.com/jinwong001/openpgp/errors"
 )
 
 // Config collects configuration parameters for s2k key-stretching

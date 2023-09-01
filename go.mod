@@ -1,4 +1,4 @@
-module github.com/CardInfoLink/openpgp
+module github.com/jinwong001/openpgp
 
 go 1.17
 

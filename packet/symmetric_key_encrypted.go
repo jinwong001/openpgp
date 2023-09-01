@@ -10,8 +10,8 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/CardInfoLink/openpgp/errors"
-	"github.com/CardInfoLink/openpgp/s2k"
+	"github.com/jinwong001/openpgp/errors"
+	"github.com/jinwong001/openpgp/s2k"
 )
 
 // This is the largest session key that we'll support. Since no 512-bit cipher

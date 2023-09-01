@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/CardInfoLink/openpgp/errors"
-	"github.com/CardInfoLink/openpgp/packet"
+	"github.com/jinwong001/openpgp/errors"
+	"github.com/jinwong001/openpgp/packet"
 )
 
 func TestKeyExpiry(t *testing.T) {

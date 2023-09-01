@@ -8,7 +8,7 @@ import (
 	"bytes"
 	"crypto/sha1"
 	"encoding/hex"
-	"github.com/CardInfoLink/openpgp/errors"
+	"github.com/jinwong001/openpgp/errors"
 	"io"
 	"testing"
 )

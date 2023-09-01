@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/CardInfoLink/openpgp/packet"
+	"github.com/jinwong001/openpgp/packet"
 )
 
 func TestSignDetached(t *testing.T) {

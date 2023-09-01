@@ -11,7 +11,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/CardInfoLink/openpgp/armor"
+	"github.com/jinwong001/openpgp/armor"
 )
 
 func TestSignatureV3Read(t *testing.T) {

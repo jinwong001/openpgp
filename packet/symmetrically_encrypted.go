@@ -8,7 +8,7 @@ import (
 	"crypto/cipher"
 	"crypto/sha1"
 	"crypto/subtle"
-	"github.com/CardInfoLink/openpgp/errors"
+	"github.com/jinwong001/openpgp/errors"
 	"hash"
 	"io"
 	"strconv"

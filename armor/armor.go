@@ -10,7 +10,7 @@
 // for their specific task. If you are required to interoperate with OpenPGP
 // systems and need a maintained package, consider a community fork.
 // See https://golang.org/issue/44226.
-package armor // import "github.com/CardInfoLink/openpgp/armor"
+package armor // import "github.com/jinwong001/openpgp/armor"
 
 import (
 	"bufio"
@@ -18,7 +18,7 @@ import (
 	"encoding/base64"
 	"io"
 
-	"github.com/CardInfoLink/openpgp/errors"
+	"github.com/jinwong001/openpgp/errors"
 )
 
 // A Block represents an OpenPGP armored structure.

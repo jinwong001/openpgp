@@ -5,7 +5,7 @@
 package packet
 
 import (
-	"github.com/CardInfoLink/openpgp/errors"
+	"github.com/jinwong001/openpgp/errors"
 	"io"
 )
 
