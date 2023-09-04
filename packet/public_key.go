@@ -22,6 +22,8 @@ import (
 	"strconv"
 	"time"
 
+	inRsa "github.com/jinwong001/openpgp/internal/rsa"
+
 	"github.com/jinwong001/openpgp/elgamal"
 	"github.com/jinwong001/openpgp/errors"
 )
@@ -520,7 +522,7 @@ func (pk *PublicKey) VerifySignature(signed hash.Hash, sig *Signature) (err erro
 	switch pk.PubKeyAlgo {
 	case PubKeyAlgoRSA, PubKeyAlgoRSASignOnly:
 		rsaPublicKey, _ := pk.PublicKey.(*rsa.PublicKey)
-		err = rsa.VerifyPKCS1v15(rsaPublicKey, sig.Hash, hashBytes, padToKeySize(rsaPublicKey, sig.RSASignature.bytes))
+		err = inRsa.VerifyPKCS1v15(rsaPublicKey, sig.Hash, hashBytes, padToKeySize(rsaPublicKey, sig.RSASignature.bytes))
 		if err != nil {
 			return errors.SignatureError("RSA verification failure")
 		}
@@ -571,7 +573,7 @@ func (pk *PublicKey) VerifySignatureV3(signed hash.Hash, sig *SignatureV3) (err 
 	switch pk.PubKeyAlgo {
 	case PubKeyAlgoRSA, PubKeyAlgoRSASignOnly:
 		rsaPublicKey := pk.PublicKey.(*rsa.PublicKey)
-		if err = rsa.VerifyPKCS1v15(rsaPublicKey, sig.Hash, hashBytes, padToKeySize(rsaPublicKey, sig.RSASignature.bytes)); err != nil {
+		if err = inRsa.VerifyPKCS1v15(rsaPublicKey, sig.Hash, hashBytes, padToKeySize(rsaPublicKey, sig.RSASignature.bytes)); err != nil {
 			return errors.SignatureError("RSA verification failure")
 		}
 		return

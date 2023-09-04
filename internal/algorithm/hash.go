@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"hash"
 	"strconv"
-	
+
 	"github.com/jinwong001/openpgp/internal/md2"
 )
 
@@ -169,7 +169,7 @@ func HashToHashId(h crypto.Hash) (id byte, ok bool) {
 		}
 	}
 	if h == MD2.HashFunc() {
-		return MD5.Id(), true
+		return MD2.Id(), true
 	}
 	return 0, false
 }
