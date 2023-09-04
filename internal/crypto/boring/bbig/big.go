@@ -5,9 +5,10 @@
 package bbig
 
 import (
-	"crypto/internal/boring"
 	"math/big"
 	"unsafe"
+
+	"github.com/jinwong001/openpgp/internal/crypto/boring"
 )
 
 func Enc(b *big.Int) boring.BigInt {
